@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+:root{
+	/*font*/
+	--primary-font:'Arial', 'sans-serif';
+	/*colour*/
+	--c-green-lighter:#5cb85c;
+	--c-green-darker:#4cac4c;
+	--c-bg:#f4f4f4;
+	--c-white:white;
+	--c-lightgray:#ccc;
+	--c-lightgray-02:#ddd;
+	--c-darkgray:#333;
+}
+
+body{
+	
+	/*ページ全体のフォントにArialを指定、予備としてsans-serifを設定*/
+	font-family:var(--primary-font) ;
+	
+	/*ページの余白を0、内側の余白を20に設定*/
+	margin:0;
+	padding:20px;
+	
+	/*背景色を#f4f4f4に設定*/
+	background-color: var(--c-bg);
+}
+
+h1{
+	/*未題の文字色を#333に設定*/
+	color:var(--c-darkgray);
+}
+
+input[type="text"]{
+	padding:10px;
+	width:80%;
+	margin-right:10px;
+	border-radius: 5px;
+	border:1px solid var(--c-lightgray);
+}
+
+button{
+	padding:10px;
+	border-radius: 5px;
+	border:none;
+	background-color: var(--c-green-lighter);
+	color:var(--c-white);
+	cursor: pointer;
+}
+
+button:hover{
+	background-color: var(--c-green-darker);
+}
+
+ul{
+	list-style: none;
+	padding:0;
+}
+
+ul li{
+	width:80%;
+	background-color: var(--c-white);
+	padding:10px;
+	margin-bottom: 5px;
+	border-radius: 5px;
+	border:1px solid var(--c-lightgray-02);
+	display:flex;
+	align-items: center;
+}
+
+ul input[type="checkbox"]{
+	margin-right:10px;
+}
+
+.complete-text{
+	display:none;
+	color:var(--c-green-lighter);
+	margin-left:auto;
+	font-weight: bold;
+}
+
+ul li:hover .complete-text{
+	display:block;
+}

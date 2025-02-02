@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	
+	<!-- ページのタイトル-->
+	<title>ToDo List</title>
+	
+	<!-- CSSファイルを読み込みます-->
+	<link rel = "stylesheet" href = "style.css">
+</head>
+<body>
+	<h1>ToDo List</h1>
+	<!--ユーザー向けインプットフォーム-->
+	<form th:action="@{/add}" method="post">
+		<!--インプット欄-->
+		<input type="text" name="task" placeholder="Add a new task">
+		<!--送信ボタン-->
+		<button type="submit">Add</button>
+	</form>
+	
+	<!-- ToDoアイテムのリストを表示します-->
+	<ul>
+		<!-- todoリストの各アイテムに対して繰り返し処理を行います-->
+		<li th:each="todo : ${todos}" th:data-id="${todo.id}">
+			<form th:action="@{/delete/{id}(id=${todo.id})}" method="get">
+				<input type="checkbox" onchange="this.form.submit()">
+				<!-- 現在のアイテム(todo)の内容を表示-->
+				<span th:text="${todo.task}">タスク</span>
+				<span class="complete-text">完了</span>
+			</form>
+		</li>
+	</ul>
+	
+	<!-- JavaScripファイルを読み込みます-->
+	<script src = "/app.js"></script>
+</body>
+</html>
